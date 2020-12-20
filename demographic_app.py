@@ -51,8 +51,8 @@ if uploaded_file is not None:
         headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
      )
     response_data2 = r2.json()
-    resultado2 = response_data2['output']
-    st.text("emocion: {}.".format(resultado2))
+    st.text("emocion: {}.".format(response_data2))
+    #resultado2 = response_data2['output']
     #resultado = response_data['output']['expressions']
     #emocion = resultado['emotion']
     #st.text("Su emoción es: {}.".format(emocion))
