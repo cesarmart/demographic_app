@@ -20,7 +20,7 @@ if uploaded_file is not None:
     st.image(uploaded_file, caption='Imagen analizada', use_column_width=True)
 
     session = requests.Session()
-    s.config['keep_alive'] = True
+    session.config['keep_alive'] = True
     
     ### DEMOGRAPHIC
     r = session.post(
