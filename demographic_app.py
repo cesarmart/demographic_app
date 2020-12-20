@@ -41,6 +41,8 @@ if uploaded_file is not None:
         st.text("Su expresión facial denota tristeza.")
     elif emocion=='surprise':
         st.text("Su expresión facial denota sorpresa.")
+    else:
+        st.text("Su emoción es: {}.".format(emocion))
 
     #r = requests.post(
         #"https://api.deepai.org/api/demographic-recognition",
