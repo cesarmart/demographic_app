@@ -19,11 +19,11 @@ if uploaded_file is not None:
 
     st.image(uploaded_file, caption='Imagen analizada', use_column_width=True)
 
-    s = requests.Session()
+    session = requests.Session()
     s.config['keep_alive'] = True
     
     ### DEMOGRAPHIC
-    r = requests.post(
+    r = session.post(
         "https://api.deepai.org/api/demographic-recognition",
         files={
             'image': uploaded_file,
@@ -57,7 +57,7 @@ if uploaded_file is not None:
         st.text("Su apariencia demográfica es: {}.".format(demography))
 
     ### EXPRESSION
-    r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
+    r2 = session.post("https://api.deepai.org/api/facial-expression-recognition",
         files={
             'image': uploaded_file,
         },
@@ -85,5 +85,5 @@ if uploaded_file is not None:
         st.text("Su emoción es: {}.".format(emocion))
 
 
-st.subheader("Hasta luego!")
+    st.subheader("Hasta luego!")
         
