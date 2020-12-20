@@ -48,6 +48,7 @@ if uploaded_file is not None:
     else:
         st.text("Su emoción es: {}.".format(emocion))
 
+if uploaded_file is not None:
 
     ### DEMOGRAPHIC
     r = requests.post(
