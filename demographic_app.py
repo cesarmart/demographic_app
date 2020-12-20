@@ -19,6 +19,8 @@ if uploaded_file is not None:
 
     st.image(uploaded_file, caption='Imagen analizada', use_column_width=True)
 
+
+    ### EXPRESSION
     r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
         files={
             'image': uploaded_file,
@@ -46,38 +48,40 @@ if uploaded_file is not None:
     else:
         st.text("Su emoción es: {}.".format(emocion))
 
-    #r = requests.post(
-        #"https://api.deepai.org/api/demographic-recognition",
-        #files={
-            #'image': uploaded_file,
-        #},
-        #headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
-    #)
 
-    #response_data = r.json()
-    #resultado = response_data['output']['faces'][0]
-    ##st.text("Resultado: {}.".format(resultado))
+    ### DEMOGRAPHIC
+    r = requests.post(
+        "https://api.deepai.org/api/demographic-recognition",
+        files={
+            'image': uploaded_file,
+        },
+        headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
+    )
+
+    response_data = r.json()
+    resultado = response_data['output']['faces'][0]
+    #st.text("Resultado: {}.".format(resultado))
     
-    #age = resultado['age_range']
-    #st.text("Su edad está en el rango: {}-{} años.".format(age[0],age[1])) 
+    age = resultado['age_range']
+    st.text("Su edad está en el rango: {}-{} años.".format(age[0],age[1])) 
 
-    #gender = resultado['gender']
-    #if gender=='Male':
-        #st.text("Ud. es hombre.")
-    #else:
-	    #st.text("Ud. es mujer.")
+    gender = resultado['gender']
+    if gender=='Male':
+        st.text("Ud. es hombre.")
+    else:
+	    st.text("Ud. es mujer.")
 
-    #demography = resultado['cultural_appearance']
-    #if demography=='Latino':
-        #st.text("Su apariencia demográfica es latina.")
-    #elif demography=='White':
-        #st.text("Su apariencia demográfica es caucásica.")
-    #elif demography=='Asian':
-        #st.text("Su apariencia demográfica es asiática.")
-    #elif demography=='Black':
-        #st.text("Su apariencia demográfica es africana subsahariana.")
-    #else:
-        #st.text("Su apariencia demográfica es: {}.".format(demography))
+    demography = resultado['cultural_appearance']
+    if demography=='Latino':
+        st.text("Su apariencia demográfica es latina.")
+    elif demography=='White':
+        st.text("Su apariencia demográfica es caucásica.")
+    elif demography=='Asian':
+        st.text("Su apariencia demográfica es asiática.")
+    elif demography=='Black':
+        st.text("Su apariencia demográfica es africana subsahariana.")
+    else:
+        st.text("Su apariencia demográfica es: {}.".format(demography))
 
 
     st.subheader("Hasta luego!")
