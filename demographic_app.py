@@ -26,7 +26,7 @@ if uploaded_file is not None:
     )
 
     response_data = r.json()
-    resultado = response_data['output']['faces']
+    resultado = response_data['output']['faces'][0]
     
     st.text("Resultado: {}.".format(resultado))
     
