@@ -30,16 +30,28 @@ if uploaded_file is not None:
     #st.text("Resultado: {}.".format(resultado))
     
     age = resultado['age_range']
-    st.text("Su edad está en el rango: {}-{}.".format(age[0],age[1])) 
+    st.text("Su edad está en el rango: {}-{} años.".format(age[0],age[1])) 
 
     gender = resultado['gender']
     if gender=='Male':
-        st.text("Ud. es hombre")
+        st.text("Ud. es hombre.")
     else:
-	    st.text("Ud. es mujer")
+	    st.text("Ud. es mujer.")
 
     demography = resultado['cultural_appearance']
     st.text("Su apariencia demográfica es: {}.".format(demography))
+
+
+    r = requests.post("https://api.deepai.org/api/facial-expression-recognition",
+        files={
+            'image': uploaded_file,
+        },
+        headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
+     )
+    response_data = r.json()
+    resultado = response_data['output']['expressions']
+    emocion = resultado['emotion']
+    st.text("Su emoción es: {}.".format(emocion))
 
     #st.subheader("Hasta luego!")
         
