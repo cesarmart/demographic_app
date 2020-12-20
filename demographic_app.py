@@ -41,6 +41,8 @@ if uploaded_file is not None:
         st.text("Su expresión facial denota tristeza.")
     elif emocion=='surprise':
         st.text("Su expresión facial denota sorpresa.")
+    elif emocion=='neutral':
+        st.text("Su expresión facial es neutral.")
     else:
         st.text("Su emoción es: {}.".format(emocion))
 
