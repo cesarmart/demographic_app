@@ -26,13 +26,16 @@ if uploaded_file is not None:
     )
 
     response_data = r.json()
-    age = response_data['age_range']
+    resultado = response_data['output']
+    faces = resultado['faces']
+    
+    age = faces['age_range']
     st.text("Su edad está en el rango: {}-{}.".format(age[0],age[1])) 
 
-    gender = response_data['gender_confidence']
+    gender = faces['gender_confidence']
     st.text("Su género es: {}.".format(gender))
 
-    demography = response_data['cultural_appearance']
+    demography = faces['cultural_appearance']
     st.text("Su apariencia demográfica es: {}.".format(demography))
 
     st.subheader("Hasta luego!")
