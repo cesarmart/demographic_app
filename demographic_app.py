@@ -33,7 +33,7 @@ if uploaded_file is not None:
     #st.text("Su edad está en el rango: {}-{}.".format(age[0],age[1])) 
 
     gender = resultado['gender']
-    if gender=='Male'
+    if gender=='Male':
         st.text("Ud. es hombre")
     else:
 	    st.text("Ud. es mujer")
