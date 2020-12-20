@@ -19,17 +19,22 @@ if uploaded_file is not None:
 
     st.image(uploaded_file, caption='Imagen analizada', use_column_width=True)
 
-    session = requests.Session()
-    session.config['keep_alive'] = True
     
     ### DEMOGRAPHIC
-    r = session.post(
+    r = requests.post(
         "https://api.deepai.org/api/demographic-recognition",
         files={
             'image': uploaded_file,
         },
         headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
     )
+    r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
+        files={
+            'image': uploaded_file,
+        },
+        headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
+     )
+
 
     response_data = r.json()
     resultado = response_data['output']['faces'][0]
@@ -57,12 +62,6 @@ if uploaded_file is not None:
         st.text("Su apariencia demográfica es: {}.".format(demography))
 
     ### EXPRESSION
-    r2 = session.post("https://api.deepai.org/api/facial-expression-recognition",
-        files={
-            'image': uploaded_file,
-        },
-        headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
-     )
     response_data2 = r2.json()
     resultado2 = response_data2['output']['expressions'][0]
     emocion = resultado2['emotion']
