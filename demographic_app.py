@@ -19,6 +19,9 @@ if uploaded_file is not None:
 
     st.image(uploaded_file, caption='Imagen analizada', use_column_width=True)
 
+    s = requests.Session()
+    s.config['keep_alive'] = True
+    
     ### DEMOGRAPHIC
     r = requests.post(
         "https://api.deepai.org/api/demographic-recognition",
@@ -52,9 +55,6 @@ if uploaded_file is not None:
         st.text("Su apariencia demográfica es africana subsahariana.")
     else:
         st.text("Su apariencia demográfica es: {}.".format(demography))
-
-
-if uploaded_file is not None:
 
     ### EXPRESSION
     r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
