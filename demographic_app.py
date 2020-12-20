@@ -44,14 +44,15 @@ if uploaded_file is not None:
     st.text("Su apariencia demográfica es: {}.".format(demography))
 
 
-    r = requests.post("https://api.deepai.org/api/facial-expression-recognition",
+    r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
         files={
             'image': uploaded_file,
         },
         headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
      )
-    response_data = r.json()
-    st.text("emocion: {}.".format(resultado))
+    response_data2 = r2.json()
+    resultado2 = response_data2['output']
+    st.text("emocion: {}.".format(resultado2))
     #resultado = response_data['output']['expressions']
     #emocion = resultado['emotion']
     #st.text("Su emoción es: {}.".format(emocion))
