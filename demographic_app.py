@@ -51,11 +51,21 @@ if uploaded_file is not None:
         headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
      )
     response_data2 = r2.json()
-    #st.text("emocion: {}.".format(response_data2))
-    #resultado2 = response_data2['output']
     resultado2 = response_data2['output']['expressions'][0]
     emocion = resultado2['emotion']
-    st.text("Su emoción es: {}.".format(emocion))
+    #st.text("Su emoción es: {}.".format(emocion))
+    if emocion=='anger':
+        st.text("Su expresión facial denota enojo.")
+    elif emocion=='disgust':
+        st.text("Su expresión facial denota disgusto.")
+    elif emocion=='fear':
+        st.text("Su expresión facial denota miedo.")
+    elif emocion=='happy':
+        st.text("Su expresión facial denota alegría.")
+    elif emocion=='sad':
+        st.text("Su expresión facial denota tristeza.")
+    elif emocion=='surprise'
+        st.text("Su expresión facial denota sorpresa.")
 
-    #st.subheader("Hasta luego!")
+    st.subheader("Hasta luego!")
         
