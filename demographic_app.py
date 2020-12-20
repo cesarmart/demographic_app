@@ -33,8 +33,8 @@ if uploaded_file is not None:
     #age = resultado['age_range']
     #st.text("Su edad está en el rango: {}-{}.".format(age[0],age[1])) 
 
-    #gender = resultado['gender_confidence']
-    #st.text("Su género es: {}.".format(gender))
+    gender = resultado['cultural_appearance']
+    st.text("Su género es: {}.".format(gender))
 
     #demography = resultado['cultural_appearance']
     #st.text("Su apariencia demográfica es: {}.".format(demography))
