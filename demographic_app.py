@@ -54,7 +54,7 @@ if uploaded_file is not None:
     #st.text("emocion: {}.".format(response_data2))
     #resultado2 = response_data2['output']
     resultado2 = response_data2['output']['expressions'][0]
-    emocion = resultado['emotion']
+    emocion = resultado2['emotion']
     st.text("Su emoción es: {}.".format(emocion))
 
     #st.subheader("Hasta luego!")
