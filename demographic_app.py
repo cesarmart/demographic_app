@@ -41,8 +41,16 @@ if uploaded_file is not None:
 	    st.text("Ud. es mujer.")
 
     demography = resultado['cultural_appearance']
-    st.text("Su apariencia demográfica es: {}.".format(demography))
-
+    if demography=='Latino':
+        st.text("Su apariencia demográfica es latina.")
+    elif demography=='White':
+        st.text("Su apariencia demográfica es caucásica.")
+    elif demography=='Asian':
+        st.text("Su apariencia demográfica es asiática.")
+    elif demography=='Black':
+        st.text("Su apariencia demográfica es africana subsahariana.")
+    else:
+        st.text("Su apariencia demográfica es: {}.".format(demography))
 
     r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
         files={
