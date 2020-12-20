@@ -53,7 +53,7 @@ if uploaded_file is not None:
     response_data2 = r2.json()
     #st.text("emocion: {}.".format(response_data2))
     #resultado2 = response_data2['output']
-    resultado2 = response_data['output']['expressions']
+    resultado2 = response_data2['output']['expressions']
     #emocion = resultado['emotion']
     st.text("Su emoción es: {}.".format(resultado2))
 
