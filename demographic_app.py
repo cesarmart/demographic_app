@@ -64,7 +64,7 @@ if uploaded_file is not None:
         st.text("Su expresión facial denota alegría.")
     elif emocion=='sad':
         st.text("Su expresión facial denota tristeza.")
-    elif emocion=='surprise'
+    elif emocion=='surprise':
         st.text("Su expresión facial denota sorpresa.")
 
     st.subheader("Hasta luego!")
