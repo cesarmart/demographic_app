@@ -19,37 +19,6 @@ if uploaded_file is not None:
 
     st.image(uploaded_file, caption='Imagen analizada', use_column_width=True)
 
-
-    ### EXPRESSION
-    r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
-        files={
-            'image': uploaded_file,
-        },
-        headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
-     )
-    response_data2 = r2.json()
-    resultado2 = response_data2['output']['expressions'][0]
-    emocion = resultado2['emotion']
-    #st.text("Su emoción es: {}.".format(emocion))
-    if emocion=='anger':
-        st.text("Su expresión facial denota enojo.")
-    elif emocion=='disgust':
-        st.text("Su expresión facial denota disgusto.")
-    elif emocion=='fear':
-        st.text("Su expresión facial denota miedo.")
-    elif emocion=='happy':
-        st.text("Su expresión facial denota alegría.")
-    elif emocion=='sad':
-        st.text("Su expresión facial denota tristeza.")
-    elif emocion=='surprise':
-        st.text("Su expresión facial denota sorpresa.")
-    elif emocion=='neutral':
-        st.text("Su expresión facial es neutral.")
-    else:
-        st.text("Su emoción es: {}.".format(emocion))
-
-if uploaded_file is not None:
-
     ### DEMOGRAPHIC
     r = requests.post(
         "https://api.deepai.org/api/demographic-recognition",
@@ -85,5 +54,36 @@ if uploaded_file is not None:
         st.text("Su apariencia demográfica es: {}.".format(demography))
 
 
-    st.subheader("Hasta luego!")
+if uploaded_file is not None:
+
+    ### EXPRESSION
+    r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
+        files={
+            'image': uploaded_file,
+        },
+        headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
+     )
+    response_data2 = r2.json()
+    resultado2 = response_data2['output']['expressions'][0]
+    emocion = resultado2['emotion']
+    #st.text("Su emoción es: {}.".format(emocion))
+    if emocion=='anger':
+        st.text("Su expresión facial denota enojo.")
+    elif emocion=='disgust':
+        st.text("Su expresión facial denota disgusto.")
+    elif emocion=='fear':
+        st.text("Su expresión facial denota miedo.")
+    elif emocion=='happy':
+        st.text("Su expresión facial denota alegría.")
+    elif emocion=='sad':
+        st.text("Su expresión facial denota tristeza.")
+    elif emocion=='surprise':
+        st.text("Su expresión facial denota sorpresa.")
+    elif emocion=='neutral':
+        st.text("Su expresión facial es neutral.")
+    else:
+        st.text("Su emoción es: {}.".format(emocion))
+
+
+st.subheader("Hasta luego!")
         
