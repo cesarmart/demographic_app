@@ -17,6 +17,8 @@ st.subheader("Suba una imagen tipo selfie y le diré lo que veo a partir de su c
 uploaded_file = st.file_uploader("", type="jpg")
 if uploaded_file is not None:
 
+    st.image(uploaded_file, caption='Imagen analizada', use_column_width=True)
+
     r = requests.post(
         "https://api.deepai.org/api/demographic-recognition",
         files={
@@ -49,9 +51,10 @@ if uploaded_file is not None:
         headers={'api-key': 'ed22d0b2-4cc5-4223-9e48-302f8a86c7c5'}
      )
     response_data = r.json()
-    resultado = response_data['output']['expressions']
-    emocion = resultado['emotion']
-    st.text("Su emoción es: {}.".format(emocion))
+    st.text("emocion: {}.".format(resultado))
+    #resultado = response_data['output']['expressions']
+    #emocion = resultado['emotion']
+    #st.text("Su emoción es: {}.".format(emocion))
 
     #st.subheader("Hasta luego!")
         
