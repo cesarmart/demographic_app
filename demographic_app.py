@@ -29,8 +29,8 @@ if uploaded_file is not None:
     resultado = response_data['output']['faces'][0]
     #st.text("Resultado: {}.".format(resultado))
     
-    #age = resultado['age_range']
-    #st.text("Su edad está en el rango: {}-{}.".format(age[0],age[1])) 
+    age = resultado['age_range']
+    st.text("Su edad está en el rango: {}-{}.".format(age[0],age[1])) 
 
     gender = resultado['gender']
     if gender=='Male':
