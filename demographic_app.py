@@ -50,11 +50,11 @@ if uploaded_file is not None:
     if demography=='Latino':
         st.text("Su apariencia demográfica es latina (certeza: {}).".format(demogconf))
     elif demography=='White':
-        st.text("Su apariencia demográfica es caucásica certeza: {}).".format(demogconf))
+        st.text("Su apariencia demográfica es caucásica (certeza: {}).".format(demogconf))
     elif demography=='Asian':
-        st.text("Su apariencia demográfica es asiática certeza: {}).".format(demogconf))
+        st.text("Su apariencia demográfica es asiática (certeza: {}).".format(demogconf))
     elif demography=='Black':
-        st.text("Su apariencia demográfica es africana subsahariana certeza: {}).".format(demogconf))
+        st.text("Su apariencia demográfica es africana subsahariana (certeza: {}).".format(demogconf))
     else:
         st.text("Su apariencia demográfica es: {} (certeza: {}).".format(demography,demogconf))
 
