@@ -40,9 +40,9 @@ if uploaded_file is not None:
     gender = resultado['gender']
     gconf = resultado['gender_confidence']
     if gender=='Male':
-        st.text("Ud. es hombre (certeza: {}).".format(gconf)
+        st.text("Ud. es hombre (certeza: {}).".format(gconf))
     else:
-	    st.text("Ud. es mujer (certeza: {}).".format(gconf)
+	    st.text("Ud. es mujer (certeza: {}).".format(gconf))
 
     demography = resultado['cultural_appearance']
     if demography=='Latino':
