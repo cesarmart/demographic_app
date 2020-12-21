@@ -35,7 +35,8 @@ if uploaded_file is not None:
     #st.text("Resultado: {}.".format(resultado))
     
     age = resultado['age_range']
-    st.text("Su edad está en el rango: {}-{} años.".format(age[0],age[1])) 
+    ageconf = resultado['age_range_confidence']
+    st.text("Su edad está en el rango: {}-{} años (certeza: {}).".format(age[0],age[1],ageconf)) 
 
     gender = resultado['gender']
     gconf = resultado['gender_confidence']
@@ -45,6 +46,7 @@ if uploaded_file is not None:
 	    st.text("Ud. es mujer (certeza: {}).".format(gconf))
 
     demography = resultado['cultural_appearance']
+    demogconf = resultado['cultural_appearance_confidence']
     if demography=='Latino':
         st.text("Su apariencia demográfica es latina.")
     elif demography=='White':
@@ -54,7 +56,7 @@ if uploaded_file is not None:
     elif demography=='Black':
         st.text("Su apariencia demográfica es africana subsahariana.")
     else:
-        st.text("Su apariencia demográfica es: {}.".format(demography))
+        st.text("Su apariencia demográfica es: {} (certeza: {}).".format(demography,demogconf))
 
     ### EXPRESSION
     #r2 = requests.post("https://api.deepai.org/api/facial-expression-recognition",
