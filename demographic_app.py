@@ -38,10 +38,11 @@ if uploaded_file is not None:
     st.text("Su edad está en el rango: {}-{} años.".format(age[0],age[1])) 
 
     gender = resultado['gender']
+    gconf = resultado['gender_confidence']
     if gender=='Male':
-        st.text("Ud. es hombre.")
+        st.text("Ud. es hombre (certeza: {}).".format(gconf)
     else:
-	    st.text("Ud. es mujer.")
+	    st.text("Ud. es mujer (certeza: {}).".format(gconf)
 
     demography = resultado['cultural_appearance']
     if demography=='Latino':
